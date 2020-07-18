@@ -4,6 +4,25 @@
   
     
     <entry>
+      <title>memcached vs redis</title>
+      <link href="/2020/07/18/web%E5%BC%80%E5%8F%91/memcached%20vs%20redis/"/>
+      <url>/2020/07/18/web%E5%BC%80%E5%8F%91/memcached%20vs%20redis/</url>
+      
+        <content type="html"><![CDATA[<h2 id="memcached-vs-redis"><a href="#memcached-vs-redis" class="headerlink" title="memcached vs redis"></a>memcached vs redis</h2><h3 id="功能"><a href="#功能" class="headerlink" title="功能"></a>功能</h3><p>memcached提供的功能是Redis的提供的功能的子集，Redis可以提供更丰富的数据类型及功能。</p><h3 id="缓存大小"><a href="#缓存大小" class="headerlink" title="缓存大小"></a>缓存大小</h3><p>当缓存相对较小且数据为静态数据时，使用memcached是一个不错的选择，因为其存储的元数据消耗更少的内存。</p><p>当数据是动态的时候，memcached的内存管理效率下降快，内存会变成碎片，在数据较大的时候伴随着数据的序列化，需要更多的空间进行存储。</p><h3 id="伸缩性"><a href="#伸缩性" class="headerlink" title="伸缩性"></a>伸缩性</h3><p>memcached是多线程，单机数据共享的（只能扩展机器，不支持不同主机间进行共享），因此可以通过增加主机进行扩展。</p><p>redis是单线程，可以通过对集群进行配置进行扩展，但集群扩展的操作相对复杂。</p><h2 id="Redis如何动态扩容"><a href="#Redis如何动态扩容" class="headerlink" title="Redis如何动态扩容"></a>Redis如何动态扩容</h2><p>场景描述：生产环境Redis内存爆满，如何在不重启Redis服务器的情况动态扩容？</p><p>单机模式：在单机模式下，可以通过redis客户端查看redis服务可用的最大内存，如果最大内存远未到达机器上限，则可以通过客户端进行配置而无需重启。</p><pre><code># 当前最大值为1Gconfig get maxmemory 1073741824# 设置最大值为3Gconfig set maxmemory 3221225472</code></pre><p>集群模式：使用<code>redis-trib.rb</code>工具向集群进行动态扩容，增加节点的顺序应该是先增加Master节点，然后再增加Slave节点。</p><pre><code># 增加新节点到集群中ruby redis-trib.rb add-node newhost:newport clusterhost:clusterport</code></pre><p>节点新增到集群后，新节点不会有任何数据，因为没有分配任何slot，后续需要手动分配，分配的方法为从已有的master节点进行分配，命令如下所示：</p><pre><code>ruby redis-trib.rb reshard cluster-master-host:port</code></pre><p><code>redis-cli</code>登录从节点，分配新加入节点的主从关系：</p><pre><code>cluster replicate 主节点ID</code></pre><p>至此完成Redis集群的动态扩容。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> web开发 </category>
+          
+      </categories>
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>2020年7月-子时杂谈</title>
       <link href="/2020/06/30/%E5%AD%90%E6%97%B6%E6%9D%82%E8%B0%88/2020%E5%B9%B47%E6%9C%88-%E5%AD%90%E6%97%B6%E6%9D%82%E8%B0%88/"/>
       <url>/2020/06/30/%E5%AD%90%E6%97%B6%E6%9D%82%E8%B0%88/2020%E5%B9%B47%E6%9C%88-%E5%AD%90%E6%97%B6%E6%9D%82%E8%B0%88/</url>
