@@ -20,22 +20,22 @@
     var CONFIG = {"hostname":"yzee1314.github.io","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="7月2日听到两句触动我的话：  努力让自己变得更好是最可爱的虚荣。 力争上游。  趁着年轻，力争上游。 7月10日生活不开心的事多得是，看不看开感觉不太重要了，因为无论如何，发生的事情就是发生了，倒不如把情绪抛一边，好好向前走。 7月19日冲凉的时候唱歌好嗨发现好久没有去KTV了！最近循环的都是eason的歌单那场精心策划的日出日落线上Live简直太赞了。">
+  <meta name="description" content="MQ的应用场景消息队列主要有以下应用场景：  应用解耦，通过约定好应用间交换数据格式，可以直接通过生产消费的模式进行应用解耦，上游应用无需关注下游应用的实现逻辑，从而进行应用解耦。 解决异步消息，这也是消息队列主要的应用场景之一。 流量消峰的问题，可以减少突发并发压力带来的影响。 日志处理（kafka）。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="2020年7月-子时杂谈">
-<meta property="og:url" content="http://yzee1314.github.io/2020/06/30/%E5%AD%90%E6%97%B6%E6%9D%82%E8%B0%88/2020%E5%B9%B47%E6%9C%88-%E5%AD%90%E6%97%B6%E6%9D%82%E8%B0%88/index.html">
+<meta property="og:title" content="MQ总结">
+<meta property="og:url" content="http://yzee1314.github.io/2020/07/19/web%E5%BC%80%E5%8F%91/MQ%E6%80%BB%E7%BB%93/index.html">
 <meta property="og:site_name" content="值欢">
-<meta property="og:description" content="7月2日听到两句触动我的话：  努力让自己变得更好是最可爱的虚荣。 力争上游。  趁着年轻，力争上游。 7月10日生活不开心的事多得是，看不看开感觉不太重要了，因为无论如何，发生的事情就是发生了，倒不如把情绪抛一边，好好向前走。 7月19日冲凉的时候唱歌好嗨发现好久没有去KTV了！最近循环的都是eason的歌单那场精心策划的日出日落线上Live简直太赞了。">
+<meta property="og:description" content="MQ的应用场景消息队列主要有以下应用场景：  应用解耦，通过约定好应用间交换数据格式，可以直接通过生产消费的模式进行应用解耦，上游应用无需关注下游应用的实现逻辑，从而进行应用解耦。 解决异步消息，这也是消息队列主要的应用场景之一。 流量消峰的问题，可以减少突发并发压力带来的影响。 日志处理（kafka）。">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2020-06-30T15:03:45.287Z">
-<meta property="article:modified_time" content="2020-07-19T15:11:34.093Z">
+<meta property="article:published_time" content="2020-07-19T15:08:24.504Z">
+<meta property="article:modified_time" content="2020-07-19T15:44:41.263Z">
 <meta property="article:author" content="Yzee">
 <meta property="article:tag" content="值欢">
 <meta property="article:tag" content="个人博客">
 <meta property="article:tag" content="值欢的个人博客">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="http://yzee1314.github.io/2020/06/30/%E5%AD%90%E6%97%B6%E6%9D%82%E8%B0%88/2020%E5%B9%B47%E6%9C%88-%E5%AD%90%E6%97%B6%E6%9D%82%E8%B0%88/">
+<link rel="canonical" href="http://yzee1314.github.io/2020/07/19/web%E5%BC%80%E5%8F%91/MQ%E6%80%BB%E7%BB%93/">
 
 
 <script id="page-configurations">
@@ -48,7 +48,7 @@
   };
 </script>
 
-  <title>2020年7月-子时杂谈 | 值欢</title>
+  <title>MQ总结 | 值欢</title>
   
 
 
@@ -155,7 +155,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://yzee1314.github.io/2020/06/30/%E5%AD%90%E6%97%B6%E6%9D%82%E8%B0%88/2020%E5%B9%B47%E6%9C%88-%E5%AD%90%E6%97%B6%E6%9D%82%E8%B0%88/">
+    <link itemprop="mainEntityOfPage" href="http://yzee1314.github.io/2020/07/19/web%E5%BC%80%E5%8F%91/MQ%E6%80%BB%E7%BB%93/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -168,7 +168,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          2020年7月-子时杂谈
+          MQ总结
         </h1>
 
         <div class="post-meta">
@@ -177,23 +177,17 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
+              
 
-              <time title="创建时间：2020-06-30 23:03:45" itemprop="dateCreated datePublished" datetime="2020-06-30T23:03:45+08:00">2020-06-30</time>
+              <time title="创建时间：2020-07-19 23:08:24 / 修改时间：23:44:41" itemprop="dateCreated datePublished" datetime="2020-07-19T23:08:24+08:00">2020-07-19</time>
             </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-07-19 23:11:34" itemprop="dateModified" datetime="2020-07-19T23:11:34+08:00">2020-07-19</time>
-              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E5%AD%90%E6%97%B6%E6%9D%82%E8%B0%88/" itemprop="url" rel="index"><span itemprop="name">子时杂谈</span></a>
+                  <a href="/categories/web%E5%BC%80%E5%8F%91/" itemprop="url" rel="index"><span itemprop="name">web开发</span></a>
                 </span>
             </span>
 
@@ -208,14 +202,13 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="7月2日"><a href="#7月2日" class="headerlink" title="7月2日"></a>7月2日</h2><p>听到两句触动我的话：</p>
-<ul>
-<li>努力让自己变得更好是最可爱的虚荣。</li>
-<li>力争上游。</li>
-</ul>
-<p>趁着年轻，力争上游。</p>
-<h2 id="7月10日"><a href="#7月10日" class="headerlink" title="7月10日"></a>7月10日</h2><p>生活不开心的事多得是，看不看开感觉不太重要了，因为无论如何，发生的事情就是发生了，倒不如把情绪抛一边，好好向前走。</p>
-<h2 id="7月19日"><a href="#7月19日" class="headerlink" title="7月19日"></a>7月19日</h2><p>冲凉的时候唱歌好嗨<del>发现好久没有去KTV了！<br>最近循环的都是eason的歌单</del>那场精心策划的日出日落线上Live简直太赞了。</p>
+        <h2 id="MQ的应用场景"><a href="#MQ的应用场景" class="headerlink" title="MQ的应用场景"></a>MQ的应用场景</h2><p>消息队列主要有以下应用场景：</p>
+<ol>
+<li>应用解耦，通过约定好应用间交换数据格式，可以直接通过生产消费的模式进行应用解耦，上游应用无需关注下游应用的实现逻辑，从而进行应用解耦。</li>
+<li>解决异步消息，这也是消息队列主要的应用场景之一。</li>
+<li>流量消峰的问题，可以减少突发并发压力带来的影响。</li>
+<li>日志处理（kafka）。</li>
+</ol>
 
     </div>
 
@@ -230,10 +223,13 @@
 
         
     <div class="post-nav">
-      <div class="post-nav-item"></div>
       <div class="post-nav-item">
-    <a href="/2020/07/18/web%E5%BC%80%E5%8F%91/memcached%20vs%20redis/" rel="next" title="memcached vs redis">
-      memcached vs redis <i class="fa fa-chevron-right"></i>
+    <a href="/2020/07/18/web%E5%BC%80%E5%8F%91/memcached%20vs%20redis/" rel="prev" title="memcached vs redis">
+      <i class="fa fa-chevron-left"></i> memcached vs redis
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2020/07/20/web%E5%BC%80%E5%8F%91/%E9%AB%98%E5%8F%AF%E7%94%A8%E3%80%81%E9%AB%98%E5%B9%B6%E5%8F%91%E7%9A%84%E5%88%86%E5%B8%83%E5%BC%8F%E6%9C%8D%E5%8A%A1%E6%9E%B6%E6%9E%84/" rel="next" title="高可用、高并发的分布式服务架构">
+      高可用、高并发的分布式服务架构 <i class="fa fa-chevron-right"></i>
     </a></div>
     </div>
       </footer>
@@ -293,7 +289,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#7月2日"><span class="nav-number">1.</span> <span class="nav-text">7月2日</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7月10日"><span class="nav-number">2.</span> <span class="nav-text">7月10日</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7月19日"><span class="nav-number">3.</span> <span class="nav-text">7月19日</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#MQ的应用场景"><span class="nav-number">1.</span> <span class="nav-text">MQ的应用场景</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
